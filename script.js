@@ -2,34 +2,35 @@
 //select button element from html file (button id="generate")
 var generateBtn = document.querySelector("#generate");
 
-//User choice: include uc or lc letters, numbers, special characters
-var lcLetters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
-var ucLetters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
-var numeric = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"] 
-var specialChar = ["!", "#", "$", "%", "&", "'", "\"", "(", ",", ")", "*", "+", ",", "-", ".", "/", ":", ";", "<", "=", ">", "?", "@", "[", "\\", "]", "^", "_", "{", "|", "}", "~", "`"]
-
 //create a function to generate a random pwd
 function generatePassword() {
   let yourPassword = "";
   let pwdLength = "";
 
-  //check for user error before moving forward
+  //Let user choose length between 8-128 characteres. Then, check for user error before moving forward.
   function pwdCheck() {
-    pwdLength = prompt("Type a number between 8 and 128.");
-    if (pwdLength < 8 || pwdLength > 128 || pwdLength == null || pwdLength == false) {     
-      alert("Hmm let's try that again!");
+    pwdLength = parseInt(prompt("Type a number between 8 and 128."));
+    console.log("User entered this for pwdLength: ", pwdLength);
+    
+    if (pwdLength < 8 || pwdLength > 128 || pwdLength === null) {     
+      alert("Hmm. Let's try that again!");
       pwdCheck();
-    } else {
-    return;
+     } else if (isNaN(pwdLength)) {
+      alert("That wasn't a number. Let's try that again!");
+      pwdCheck();
+     } else {
+      alert("Great. Next, select what character types to include. Select OK for Yes and Cancel for no. Be sure to say OK to least one!");
+      return;
     } 
   }
-  pwdCheck();
-  alert("Great. Next, select what character types to include. Select OK for Yes and Cancel for no. Be sure to say OK to least one!")
-  //log user's pwd length:
-  console.log("Chosen length: ", pwdLength);
 
- //user chooses character types
-//check for user error before moving forward (confirms return true or false)
+//call the pwdCheck fn
+  pwdCheck();
+  
+//log user's pwd length:
+console.log("Chosen length: ", pwdLength);
+
+//Following function allows user to choose character types, then checks for user error before moving forward
   let ucSelect = "";
   let lcSelect = "";
   let numSelect = "";
@@ -55,8 +56,14 @@ function generatePassword() {
   console.log("Include numeric: ", numSelect);
   console.log("Include special: ", specialSelect);
 
-  //Check which arrays we access based on user choices, then add those into a new array.
-  let charSelection = []
+//Check which arrays we access based on user choices, then add those into a new array.
+//User choice: include uc or lc letters, numbers, special characters
+let lcLetters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
+let ucLetters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
+let numeric = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"] 
+let specialChar = ["!", "#", "$", "%", "&", "'", "\"", "(", ",", ")", "*", "+", ",", "-", ".", "/", ":", ";", "<", "=", ">", "?", "@", "[", "\\", "]", "^", "_", "{", "|", "}", "~", "`"]
+
+let charSelection = []
   if (ucSelect) { //don't need to include ""=== true" after upperSelect, it's implied
     charSelection = charSelection.concat(ucLetters); //or why wouldn't we
   }  
