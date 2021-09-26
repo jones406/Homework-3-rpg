@@ -1,22 +1,19 @@
-# 03 JavaScript: Password Generator
+# Homework 03: Modify JS File to Create Password Generator 
 
-## Your Task
+## My Task
+I was tasked with modifying starter code that should make an application to enable employees to generate random passwords based on criteria they’ve selected. 
 
-This week’s homework requires you to modify starter code to create an application that enables employees to generate random passwords based on criteria that they’ve selected. This app will run in the browser and will feature dynamically updated HTML and CSS powered by JavaScript code that you write. It will have a clean and polished, responsive user interface that adapts to multiple screen sizes.
-
-The password can include special characters. If you’re unfamiliar with these, see this [list of password special characters](https://www.owasp.org/index.php/Password_special_characters) from the OWASP Foundation.
+## Given:
+### App needs to: 
+1.	run in the browser 
+2.	feature dynamically updated HTML and CSS powered by JavaScript code 
+3.	have a clean and polished, responsive user interface that adapts to multiple screen sizes
 
 ## User Story
-
-```
 AS AN employee with access to sensitive data
 I WANT to randomly generate a password that meets certain criteria
 SO THAT I can create a strong password that provides greater security
-```
-
-## Acceptance Criteria
-
-```
+Acceptance Criteria
 GIVEN I need a new, secure password
 WHEN I click the button to generate a password
 THEN I am presented with a series of prompts for password criteria
@@ -32,61 +29,30 @@ WHEN all prompts are answered
 THEN a password is generated that matches the selected criteria
 WHEN the password is generated
 THEN the password is either displayed in an alert or written to the page
-```
 
-## Mock-Up
+No modifications needed to be made to the index.html file or the style.css file 
 
-The following image shows the web application's appearance and functionality:
+## Modifications to the script.js file:
+The generateBtn variable and writePassword function were already included.
+I completed the generatePassword function by following this logic:
+1.	create variable for the final output: yourPassword
+2.	create variable for password length: pwdLength
+3.	Prompt: Let user choose length between 8-128 characters. 
+4.	Convert prompt to integer.
+5.	Check for user error using if statements in a recursive function called pwdCheck
+6.	Call that function if no user error
+7.	Allow user to select their character types
+8.	Check user error using the same method as before, function pwdCheck2
+9.	Create arrays to hold different char types
+10.	Depending on user choice, one or more arrays should be accessed
+11.	Concatenate any arrays user chose into a new array called charSelection
+12.	Use function yourPassword to grab randomly from the new array
+13.	The existing function, writePassword, then takes the input from all of this, the generatePassword fn, and writes it to the HTML file.
 
-![The Password Generator application displays a red button to "Generate Password".](./Assets/03-javascript-homework-demo.png)
 
-## Grading Requirements
-
-This homework is graded based on the following criteria: 
-
-### Technical Acceptance Criteria: 40%
-
-* Satisfies all of the preceding acceptance criteria plus the following:
-
-  * The homework should not produce any errors in the console when you inspect it using Chrome DevTools.
-
-### Deployment: 32%
-
-* Application deployed at live URL.
-
-* Application loads with no errors.
-
-* Application GitHub URL submitted.
-
-* GitHub repository that contains application code.
-
-### Application Quality: 15%
-
-* Application user experience is intuitive and easy to navigate.
-
-* Application user interface style is clean and polished.
-
-* Application resembles the mock-up functionality provided in the homework instructions.
-
-### Repository Quality: 13%
-
-* Repository has a unique name.
-
-* Repository follows best practices for file structure and naming conventions.
-
-* Repository follows best practices for class/id naming conventions, indentation, quality comments, etc.
-
-* Repository contains multiple descriptive commit messages.
-
-* Repository contains quality readme file with description, screenshot, and link to deployed application.
-
-## Review
-
-You are required to submit the following for review:
-
-* The URL of the deployed application.
-
-* The URL of the GitHub repository, with a unique name and a readme describing the project.
-
-- - -
-© 2021 Trilogy Education Services, LLC, a 2U, Inc. brand. Confidential and Proprietary. All Rights Reserved.
+## References:
+•	Tyler Arthur, Tutor
+•	Eric Torres, AskBCS Learning Assistant
+•	https://www.w3schools.com/js/js_comparisons.asp
+•	https://stackoverflow.com/questions/15686318/why-do-not-a-number-values-equal-true-when-cast-as-boolean-in-python-numpy
+•	https://stackoverflow.com/questions/22893516/javascript-function-if-else-isnan
