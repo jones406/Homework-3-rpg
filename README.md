@@ -1,13 +1,7 @@
-# Homework 03: Modify JS File to Create Password Generator 
+# Random Password Generator App
 
-## My Task
-I was tasked with modifying starter code that should make an application to enable employees to generate random passwords based on criteria they’ve selected. 
-
-## Given:
-### App needs to: 
-1.	run in the browser 
-2.	feature dynamically updated HTML and CSS powered by JavaScript code 
-3.	have a clean and polished, responsive user interface that adapts to multiple screen sizes
+## Description
+Generate random, secure passwords based on criteria you've selected. 
 
 ## User Story
 AS AN employee with access to sensitive data
@@ -30,10 +24,8 @@ THEN a password is generated that matches the selected criteria
 WHEN the password is generated
 THEN the password is either displayed in an alert or written to the page
 
-No modifications needed to be made to the index.html file or the style.css file 
 
 ## Modifications to the script.js file:
-The generateBtn variable and writePassword function were already included.
 I completed the generatePassword function by following this logic:
 1.	create variable for the final output: yourPassword
 2.	create variable for password length: pwdLength
